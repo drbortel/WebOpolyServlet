@@ -27,7 +27,7 @@ public class WebOpolyServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	// TODO Auto-generated method stub
-    	response.getWriter().append("Served at: ").append(request.getContextPath());
+    	response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
 
     	response.setContentType("text/html");
     	PrintWriter out = response.getWriter();
@@ -37,11 +37,11 @@ public class WebOpolyServlet extends HttpServlet {
     	
     	out.println("<HTML>");
     	out.println("<HEAD><TITLE>Start Info for Game</TITLE></HEAD>");
-    	out.println("<BODY><BR><BR>");
-       	out.println("You have " + numPlayers + " players!<BR>");
-    	out.println("Players have " + startMoney + " starting money!<BR><BR>");
-    	out.println("<a href='game.html'>Launch Game</a><BR>");
-    	out.println("or <a href='index.html'>Go Back</a><BR>");
+    	out.println("<BODY style='background-color: navy';><BR><BR><BR>");
+       	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!<BR>");
+    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!<BR><BR>");
+    	out.println("<a href='game.html' style='color:red';>Launch Game</a><BR>");
+    	out.println("or <a href='index.html' style='color:red';>Go Back</a><BR>");
      	out.println("</BODY></HTML>");
      	out.close();
     }
