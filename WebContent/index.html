@@ -14,21 +14,32 @@
 
 <! -- build the input form here -->
 
-<FORM METHOD=GET ACTION="http://localhost:8080/WebOpolyServlet/WebOpoly">
+<FORM METHOD=GET ACTION="http://localhost:8080/WebOpolyServlet/WebOpoly" NAME=inputForm>
 <h3 style="color: white;font-family: cursive;text-align: left;">How many players?</h3>
-<INPUT TYPE=TEXT NAME="numPlayers">
+<SELECT NAME="numPlayers">
+	<OPTION VALUE="dropdown">Number Players
+	<OPTION VALUE="One">One
+	<OPTION VALUE="Two">Two
+	<OPTION VALUE="Three">Three
+	<OPTION VALUE="Four">Four
+</SELECT>
 <h3 style="color: white;font-family: cursive;text-align: left;">How much Start Money?</h3>
-<INPUT TYPE=TEXT NAME="startMoney"><P>
-<INPUT TYPE=SUBMIT>
-</FORM>
-
-<BR>
-<p style="color: silver;text-align: center;"><image src="images/man1.jpg">Choose your number of players and launch the game to capture the most monopolies and corner the market!</p>
+<SELECT NAME="startMoney">
+	<OPTION VALUE="dropdown">Starting Money
+	<OPTION VALUE="$1500">$1500
+	<OPTION VALUE="$2000">$2000
+	<OPTION VALUE="$2500">$2500
+</SELECT>
+<BR><BR><BR>
+<p style="color: silver;text-align: center;">
+<image src="images/man1.jpg">
+Choose your number of players and launch the game to capture the most monopolies and corner the market!</p>
 <br><br>
 <center>
-<input type= "button" onclick="location.href='http://localhost:8080/WebOpolyServlet/game.html';" value="Start Game!">
+<input type= SUBMIT onclick="location.href='http://localhost:8080/WebOpolyServlet/game.html';" value="Start Game!">
 </center>
 
+</FORM>
 </body>
 </html>
 
