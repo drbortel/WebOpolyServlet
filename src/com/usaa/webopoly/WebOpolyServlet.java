@@ -38,9 +38,12 @@ public class WebOpolyServlet extends HttpServlet {
     	out.println("<HTML>");
     	out.println("<HEAD><TITLE>Start Info for Game</TITLE></HEAD>");
     	out.println("<BODY><BR><BR>");
-       	out.println("You will have " + numPlayers + " players!<BR>");
-    	out.println("Players will have " + startMoney + " starting money!<BR><BR>");
-    	out.println("Launching game in few seconds..<BR>");
-     	out.println("</BODY></HTML>");	  
+       	out.println("You have " + numPlayers + " players!<BR>");
+    	out.println("Players have " + startMoney + " starting money!<BR><BR>");
+    	out.println("<a href='game.html'>Launch Game</a><BR>");
+    	out.println("or <a href='index.html'>Go Back</a><BR>");
+     	out.println("</BODY></HTML>");
+     	out.close();
     }
+  
 }

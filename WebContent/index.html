@@ -17,7 +17,7 @@
 <FORM METHOD=GET ACTION="http://localhost:8080/WebOpolyServlet/WebOpoly" NAME=inputForm>
 <h3 style="color: white;font-family: cursive;text-align: left;">How many players?</h3>
 <SELECT NAME="numPlayers">
-	<OPTION VALUE="dropdown">Number Players
+	<OPTION VALUE="missing">Number Players
 	<OPTION VALUE="One">One
 	<OPTION VALUE="Two">Two
 	<OPTION VALUE="Three">Three
@@ -25,7 +25,7 @@
 </SELECT>
 <h3 style="color: white;font-family: cursive;text-align: left;">How much Start Money?</h3>
 <SELECT NAME="startMoney">
-	<OPTION VALUE="dropdown">Starting Money
+	<OPTION VALUE="missing">Starting Money
 	<OPTION VALUE="$1500">$1500
 	<OPTION VALUE="$2000">$2000
 	<OPTION VALUE="$2500">$2500
@@ -33,10 +33,10 @@
 <BR><BR><BR>
 <p style="color: silver;text-align: center;">
 <image src="images/man1.jpg">
-Choose your number of players and launch the game to capture the most monopolies and corner the market!</p>
+Choose number of players and start money, then launch the game to capture monopolies and corner the market!</p>
 <br><br>
 <center>
-<input type= SUBMIT onclick="location.href='http://localhost:8080/WebOpolyServlet/game.html';" value="Start Game!">
+<input type= SUBMIT value="Start Game!">
 </center>
 
 </FORM>
