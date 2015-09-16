@@ -39,11 +39,34 @@ public class WebOpolyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	// TODO Auto-generated method stub
     	response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
-    	response.setIntHeader("UpdateTime", 5);
     	response.setContentType("text/html");
+    	response.setIntHeader("Refresh", 5);
     	
-	    PrintWriter out = response.getWriter();
-
+    	// Get current time
+	      Calendar calendar = new GregorianCalendar();
+	      String am_pm;
+	      int hour = calendar.get(Calendar.HOUR);
+	      int minute = calendar.get(Calendar.MINUTE);
+	      int second = calendar.get(Calendar.SECOND);
+	      if(calendar.get(Calendar.AM_PM) == 0)
+	        am_pm = "AM";
+	      else
+	        am_pm = "PM";
+	 
+	      String CT = hour+":"+ minute +":"+ second +" "+ am_pm;
+	      
+	      PrintWriter out = response.getWriter();
+//	      String title = "Auto Page Refresh using Servlet";
+//	      String docType =
+//	      "<!doctype html public \"-//w3c//dtd html 4.0 " +
+//	      "transitional//en\">\n";
+//	      out.println(docType +
+//	        "<html>\n" +
+//	        "<head><title>" + title + "</title></head>\n"+
+//	        "<body bgcolor=\"#f0f0f0\">\n" +
+//	        "<h1 align=\"center\">" + title + "</h1>\n" +
+//	        "<p>Current Time is: " + CT + "</p>\n");
+	      
     	response.setContentType("text/html");
     	//PrintWriter out = response.getWriter();
     	
@@ -88,6 +111,7 @@ public class WebOpolyServlet extends HttpServlet {
     	out.println("<h3 style='color: white;font-weight: bolder;text-align: center;'>");
     	out.println("Balance Updates every 10 seconds</h3>");
      	out.println("</BODY></HTML>");
+     	out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
      	out.close();
     }
     
