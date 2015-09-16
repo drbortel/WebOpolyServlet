@@ -11,7 +11,7 @@ public class Tile {
 	private int houses = 0;
 
 	public int calculateRent() {
-		return (int)(costToBuy * 0.1) * (houses + 1);
+		return (int)(costToBuy * 0.5) * (houses + 1);
 	}
 
 	public Tile(int cost,int id) {
