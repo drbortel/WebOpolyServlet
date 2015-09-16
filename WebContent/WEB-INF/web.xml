@@ -21,5 +21,4 @@
 		<servlet-name>WebOpolyServlet</servlet-name>
 		<url-pattern>/WebOpoly</url-pattern>
 	</servlet-mapping>
-	
 </web-app>

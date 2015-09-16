@@ -75,7 +75,7 @@ public class WebOpolyServlet extends HttpServlet {
     	String startMoney = request.getParameter("startMoney");
     	
     	out.println("<HTML>");
-    	out.println("<HEAD><TITLE>Start Info for Game</TITLE></HEAD>");
+    	out.println("<HEAD><TITLE>WebOpoly Game</TITLE></HEAD>");
     	out.println("<BODY style='background-color: navy';><BR><BR><BR>");
        	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!<BR>");
     	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!<BR><BR>");
@@ -92,9 +92,9 @@ public class WebOpolyServlet extends HttpServlet {
     	//out.println("or <a href='index.html' style='color:red';>Go Back</a><BR>");
     	out.println("<h2 style='color: white;font-weight: bolder;text-align: center;'>WebOpoly Game Progress</h2>");
     	out.println("<BR><BR><h3><TABLE align=center style='width:75%'>");
-    	out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>");
-    	
-    	out.println("Player 1 Balance: </TD><TD style='color: red;font-family: cursive;text-align: left;'>500</TD>");
+
+    	out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Player 1 Balance: ");
+    	out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>" + player.getNetworth() + "</TD>");
     	out.println("<TD style='color: white;font-family: cursive;text-align: center;'>");
     	out.println("Player 2 Balance: </TD><TD style='color: red;font-family: cursive;text-align: left;'>600</TD></TR><TR>");
     	out.println("<TD style='color: white;font-family: cursive;text-align: center;'>");
