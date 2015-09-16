@@ -18,13 +18,13 @@ public class WebOpolyServletMainUI {
 	
 	@Test
 	public void testMain() {
-		mainUI m = new mainUI();
+		//mainUI m = new mainUI();
 
-		if(m.display() == null) {
+		//if(m.display() == null) {
 			fail("Page is not initialized with default values");
 		}
 
-		page mainUI = new page("mainUI");
+		//page mainUI = new page("mainUI");
 	}
 
-}
+

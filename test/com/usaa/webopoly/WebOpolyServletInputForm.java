@@ -13,13 +13,12 @@ public class WebOpolyServletInputForm {
 	
 	@Test
 	public void testForm() {
-		form f = new form();
+		//form f = new form();
 
-		if(f.display() == null) {
+		//if(f.display() == null) {
 			fail("Form is not initialized with default values");
 		}
 
-		form inputForm = new form("inputForm");
+		//form inputForm = new form("inputForm");
 	}
 
-}

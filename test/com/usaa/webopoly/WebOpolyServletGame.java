@@ -13,13 +13,12 @@ public class WebOpolyServletGame {
 	
 	@Test
 	public void testGame() {
-		gameUI g = new gameUI();
+		//gameUI g = new gameUI();
 
-		if(g.display() == null) {
+		//if(g.display() == null) {
 			fail("Page is not initialized with default values");
 		}
 
-		page mainUI = new page("gameUI");
+		//page mainUI = new page("gameUI");
 	}
 
-}
