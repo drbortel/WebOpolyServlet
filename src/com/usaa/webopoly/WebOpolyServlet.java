@@ -1,7 +1,5 @@
 package com.usaa.webopoly;
 
-import java.io.*;
-import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +20,10 @@ public class WebOpolyServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    public void init() 
+    {
+    	
+    }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
