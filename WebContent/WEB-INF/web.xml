@@ -20,8 +20,4 @@
 		<servlet-name>WebOpolyServlet</servlet-name>
 		<url-pattern>/WebOpoly</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>WebOpolyServlet</servlet-name>
-		<url-pattern>/WebOpolyRun</url-pattern>
-	</servlet-mapping>
 </web-app>
