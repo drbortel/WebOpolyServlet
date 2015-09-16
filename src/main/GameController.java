@@ -121,5 +121,13 @@ public class GameController {
 
 		board = new Board();
 	}
+
+	public ArrayList<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(ArrayList<Player> players) {
+		this.players = players;
+	}
 }
 
