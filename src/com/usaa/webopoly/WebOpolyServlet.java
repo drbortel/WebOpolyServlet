@@ -42,31 +42,8 @@ public class WebOpolyServlet extends HttpServlet {
     	response.setIntHeader("UpdateTime", 5);
     	response.setContentType("text/html");
     	
-    	// Get current time
-	      Calendar calendar = new GregorianCalendar();
-	      String am_pm;
-	      int hour = calendar.get(Calendar.HOUR);
-	      int minute = calendar.get(Calendar.MINUTE);
-	      int second = calendar.get(Calendar.SECOND);
-	      if(calendar.get(Calendar.AM_PM) == 0)
-	        am_pm = "AM";
-	      else
-	        am_pm = "PM";
-	 
-	      String CT = hour+":"+ minute +":"+ second +" "+ am_pm;
-	      
-	      PrintWriter out = response.getWriter();
-	      String title = "Auto Page Refresh using Servlet";
-	      String docType =
-	      "<!doctype html public \"-//w3c//dtd html 4.0 " +
-	      "transitional//en\">\n";
-	      out.println(docType +
-	        "<html>\n" +
-	        "<head><title>" + title + "</title></head>\n"+
-	        "<body bgcolor=\"#f0f0f0\">\n" +
-	        "<h1 align=\"center\">" + title + "</h1>\n" +
-	        "<p>Current Time is: " + CT + "</p>\n");
-    	
+	    PrintWriter out = response.getWriter();
+
     	response.setContentType("text/html");
     	//PrintWriter out = response.getWriter();
     	
@@ -91,20 +68,22 @@ public class WebOpolyServlet extends HttpServlet {
     	//out.println("or <a href='index.html' style='color:red';>Go Back</a><BR>");
     	out.println("<h2 style='color: white;font-weight: bolder;text-align: center;'>WebOpoly Game Progress</h2>");
     	out.println("<BR><BR><h3><TABLE align=center style='width:75%'>");
-<<<<<<< HEAD
-    	out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Player 1 Balance: ");
-    	out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>" + player.getNetworth() + "</TD>");
-=======
-    	out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>");
-    	
-    	out.println("Player 1 Balance: </TD><TD style='color: red;font-family: cursive;text-align: left;'>500</TD>");
->>>>>>> 7505bc78d3130de113d887998461d0cb1203c4f7
+
+    	if ( players.get(0).getNetworth() >= 0 ) {
+        	out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Player 1 Balance: ");
+        	out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>" + players.get(0).getNetworth() + "</TD>");
+    	}
+    	if ( players.get(1).getNetworth() >= 0 ) {
+        	out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>");
+        	out.println("<TD style='color: white;font-family: cursive;text-align: center;'>Player 2 Balance: ");
+        	out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>" + players.get(1).getNetworth() + "</TD></TR><TR>");
+    	}
+    	if ( players.get(2).getNetworth() >= 0 ) {
+        	out.println("<TD style='color: white;font-family: cursive;text-align: center;'>Player 3 Balance: ");
+        	out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>" + players.get(2).getNetworth() + "</TD>");
+    	}
     	out.println("<TD style='color: white;font-family: cursive;text-align: center;'>");
-    	out.println("Player 2 Balance: </TD><TD style='color: red;font-family: cursive;text-align: left;'>600</TD></TR><TR>");
-    	out.println("<TD style='color: white;font-family: cursive;text-align: center;'>");
-    	out.println("Player 3 Balance: </TD><TD style='color: red;font-family: cursive;text-align: left;'>400</TD>");
-    	out.println("<TD style='color: white;font-family: cursive;text-align: center;'>");
-    	out.println("Player 4 Balance: </TD><TD style='color: red;font-family: cursive;text-align: left;'>550</TD></TR>");
+    	out.println("Player 4 Balance: </TD><TD style='color: red;font-family: cursive;text-align: left;'>Out</TD></TR>");
     	out.println("</TABLE></h3><BR><BR>");
     	out.println("<h3 style='color: white;font-weight: bolder;text-align: center;'>");
     	out.println("Balance Updates every 10 seconds</h3>");
