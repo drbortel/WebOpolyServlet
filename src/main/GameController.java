@@ -39,7 +39,6 @@ public class GameController {
 				}
 			}
 
-
 			//Get Current Player
 			Player currentPlayer = players.get(turnCounter % players.size());
 			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
@@ -66,10 +65,9 @@ public class GameController {
 				System.out.println("\t" + currentPlayer.getName() + " out");
 			}
 
-
-
 			String marker;
 			System.out.print(turnCounter + ") " );
+
 			for(Player player : players) {
 				marker = "";
 				if(currentPlayer.getId() == player.getId()) {
@@ -78,16 +76,19 @@ public class GameController {
 				System.out.print(marker + player.getName() + "=" + player.getNetworth() + "\t\t");
 			}
 			System.out.println();
+			if ( (turnCounter % 10) == 0 ) {
+				System.out.println("\t" + " ** Refresh the Page **");
+			}
 
 			//checkForWin(players.get(turnCounter % players.size()), board);
-
+			
 			delay(delayTime);
-
-			gui.draw(board,players);
+			
+			//gui.draw(board,players);
 			turnCounter++;
 		}
 
-		System.out.println(players.get(0).getName() + " winns!!!");
+		System.out.println(players.get(0).getName() + " wins!!!");
 
 	}
 
