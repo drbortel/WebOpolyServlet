@@ -12,6 +12,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<servlet>
 		<servlet-name>WebOpolyServlet</servlet-name>
 		<servlet-class>com.usaa.webopoly.WebOpolyServlet</servlet-class>
@@ -20,8 +21,5 @@
 		<servlet-name>WebOpolyServlet</servlet-name>
 		<url-pattern>/WebOpoly</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>WebOpolyServlet</servlet-name>
-		<url-pattern>/WebOpolyRun</url-pattern>
-	</servlet-mapping>
+	
 </web-app>
