@@ -91,7 +91,8 @@ public class WebOpolyServlet extends HttpServlet {
     	//out.println("or <a href='index.html' style='color:red';>Go Back</a><BR>");
     	out.println("<h2 style='color: white;font-weight: bolder;text-align: center;'>WebOpoly Game Progress</h2>");
     	out.println("<BR><BR><h3><TABLE align=center style='width:75%'>");
-
+     	out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
+     	
     	if ( players.get(0).getNetworth() >= 0 ) {
         	out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Player 1 Balance: ");
         	out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>" + players.get(0).getNetworth() + "</TD>");
@@ -111,7 +112,6 @@ public class WebOpolyServlet extends HttpServlet {
     	out.println("<h3 style='color: white;font-weight: bolder;text-align: center;'>");
     	out.println("Balance Updates every 10 seconds</h3>");
      	out.println("</BODY></HTML>");
-     	out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
      	out.close();
     }
     
