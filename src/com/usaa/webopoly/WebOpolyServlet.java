@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//import com.usaa.webopoly.*;
 
 /**
  * Servlet implementation class WebOpolyServlet
@@ -31,7 +32,7 @@ public class WebOpolyServlet extends HttpServlet {
 
     	response.setContentType("text/html");
     	PrintWriter out = response.getWriter();
-
+    	
     	String numPlayers = request.getParameter("numPlayers");
     	String startMoney = request.getParameter("startMoney");
     	
@@ -40,7 +41,8 @@ public class WebOpolyServlet extends HttpServlet {
     	out.println("<BODY style='background-color: navy';><BR><BR><BR>");
        	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!<BR>");
     	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!<BR><BR>");
-    	out.println("<a href='game.html' style='color:red';>Launch Game</a><BR>");
+     	out.println("<IMG SRC='man1.jpg'><BR><BR>");
+     	out.println("<a href='game.html' style='color:red';>Launch Game</a><BR>");
     	out.println("or <a href='index.html' style='color:red';>Go Back</a><BR>");
      	out.println("</BODY></HTML>");
      	out.close();

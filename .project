@@ -3,6 +3,7 @@
 	<name>WebOpolyServlet</name>
 	<comment></comment>
 	<projects>
+		<project>DallOpoly</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
