@@ -48,12 +48,15 @@ public class WebOpolyServlet extends HttpServlet {
 	      int hour = calendar.get(Calendar.HOUR);
 	      int minute = calendar.get(Calendar.MINUTE);
 	      int second = calendar.get(Calendar.SECOND);
+	      String minuteStr = String.format("%02d", minute);
+	      String secondStr = String.format("%02d", second);
+
 	      if(calendar.get(Calendar.AM_PM) == 0)
 	        am_pm = "AM";
 	      else
 	        am_pm = "PM";
 	 
-	      String CT = hour+":"+ minute +":"+ second +" "+ am_pm;
+	      String CT = hour+":"+ minuteStr +":"+ secondStr +" "+ am_pm;
 	      
 	      PrintWriter out = response.getWriter();
 //	      String title = "Auto Page Refresh using Servlet";
