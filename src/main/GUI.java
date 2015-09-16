@@ -15,7 +15,8 @@ class GUI extends JFrame
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(1,1);
-		setVisible(true);
+		//setVisible(true);
+		setVisible(false);
 
 		setLayout(new GridLayout(0,12));
 		

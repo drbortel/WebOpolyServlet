@@ -111,11 +111,11 @@ public class GameController {
 	private void setup() {
 		gui = new GUI();
 
-		players.add(new Player("Mike",0,"#800080"));
-		players.add(new Player("Jenna",1,"#996633"));
+		players.add(new Player("Derek",0,"#800080"));
+		players.add(new Player("Stephen",1,"#996633"));
 		players.add(new Player("Darren",2,"#ff0000"));
-		players.add(new Player("Joey",3,"#00cc00"));
-		players.add(new Player("Jon",4,"#0000ff"));
+		//players.add(new Player("Joey",3,"#00cc00"));
+		//players.add(new Player("Jon",4,"#0000ff"));
 
 		bank = new Bank("Bank",-1,"#000000");
 

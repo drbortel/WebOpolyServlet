@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Player {
 
-	public static final int DEFAULT_START_VALUE = 1000;
+	public static final int DEFAULT_START_VALUE = 200;
 
 	private String color;
 
