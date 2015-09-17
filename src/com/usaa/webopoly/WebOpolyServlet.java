@@ -22,6 +22,7 @@ import main.Player;
 public class WebOpolyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	GameController game = new GameController();
+	ArrayList<Player> players = new ArrayList<>();
     /**
      * Default constructor. 
      */
@@ -30,8 +31,8 @@ public class WebOpolyServlet extends HttpServlet {
     }
 
     public void init() 
-    {
-    	
+    {    	
+    	players = game.getPlayers();
     }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -50,10 +51,12 @@ public class WebOpolyServlet extends HttpServlet {
     	String numPlayers = setPlayerLimit(request);
 
     	String startMoney = request.getParameter("startMoney");
-
+    	int startMoneyInt = Integer.parseInt(startMoney);
+    	System.out.println("startMoney is " +startMoneyInt);
+    	
+    	setPlayerStartMoney(players, startMoneyInt);
     	game.playGame();
-    	ArrayList<Player> players = new ArrayList<>();
-    	players = game.getPlayers();
+    	
     	
     	buildPageHeader(request, response, out, numPlayers, startMoney);
     	
@@ -162,5 +165,14 @@ public class WebOpolyServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+    
+    public void setPlayerStartMoney(ArrayList<Player> players, int money)
+    {
+    	for (Player player: players)
+    	{
+    		player.setDEFAULT_START_VALUE(money);
+    		System.out.println("Player has " + player.getNetworth() +" money.");
+    	}
+    }
   
 }
