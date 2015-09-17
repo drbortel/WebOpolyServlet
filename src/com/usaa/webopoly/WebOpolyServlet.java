@@ -21,7 +21,7 @@ import main.Player;
 @WebServlet(name = "WebOpoly1Servlet", urlPatterns = { "/WebOpoly1Servlet" })
 public class WebOpolyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	GameController game = new GameController();
     /**
      * Default constructor. 
      */
@@ -31,7 +31,7 @@ public class WebOpolyServlet extends HttpServlet {
 
     public void init() 
     {
-    	
+    	game.playGame();
     }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -77,8 +77,7 @@ public class WebOpolyServlet extends HttpServlet {
     	String startMoney = request.getParameter("startMoney");
 
     	/* Launch Game */
-    	GameController game = new GameController();
-    	game.playGame();
+    	
     	ArrayList<Player> players = new ArrayList<>();
     	players = game.getPlayers();
     	

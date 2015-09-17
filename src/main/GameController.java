@@ -28,6 +28,7 @@ public class GameController {
 	public void playGame() {
 		System.out.println("*************************************\n**     Welcome to WebOpoly!!!     **\n*************************************");
 
+		
 		while(players.size() > 1) {
 			//Wait for User input
 			if(debug) {
