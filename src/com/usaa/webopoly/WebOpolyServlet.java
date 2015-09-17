@@ -41,7 +41,7 @@ public class WebOpolyServlet extends HttpServlet {
     	//response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
     	response.setContentType("text/html");
     	response.setIntHeader("Refresh", 3);
-
+    	
     	// Get current time
     	Calendar calendar = new GregorianCalendar();
     	String am_pm;
@@ -74,6 +74,19 @@ public class WebOpolyServlet extends HttpServlet {
     	PrintWriter out = response.getWriter();
 
     	String numPlayers = request.getParameter("numPlayers");
+    	int limit = 4;
+    	switch (numPlayers) {
+    	case "2":
+    		limit = 2;
+    		break;
+    	case "3":
+    		limit = 3;
+    		break;
+    	case "4":
+    		limit = 4;
+    		break;
+    	}
+    	limit = 3;
     	String startMoney = request.getParameter("startMoney");
 
     	game.playGame();
@@ -91,9 +104,10 @@ public class WebOpolyServlet extends HttpServlet {
     	
     	out.println("<h2 style='color: white;font-weight: bolder;text-align: center;'>WebOpoly Game Progress</h2>");
     	out.println("<BR><h2 style='color:white; text-align: left;'>Current Time is: " + CT + "</h2><BR><BR>");
-
+    	out.println("<h3>Balance Updates every 5 seconds</h3>");
+    	
     	out.println("<TABLE align=center style='width:75%'>");
-    	for(int i=0; i<3; i++){
+    	for(int i=0; i<limit; i++){
         	out.println(
         			"<TR><TD style='color: white;font-family: cursive;text-align: center;'>" +
         			"Balance for " + players.get(i).getName() +
@@ -115,14 +129,20 @@ public class WebOpolyServlet extends HttpServlet {
        				+ "</TD></TR>"
        				);
         	}
+        	if ( game.isGameWinner()) {
+        		out.println("<TR><TD>Congrats " + players.get(0).getName() + " !</TD></TR>");
+            }
     	}
      	out.println("</TABLE>");
      	
     	out.println("<BR><BR><h3 style='color: white;font-weight: bolder;text-align: center;'>");
-    	out.println("Balance Updates every 5 seconds</h3>");
+
     	out.println("</BODY></HTML>");
     	out.close();
     	game.setRefreshFlag(false);
+    	/*if (game.isGameWinner()) {
+    		request.getRequestDispatcher(getServletInfo()).forward (request, "./game.html");
+    	}*/
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
