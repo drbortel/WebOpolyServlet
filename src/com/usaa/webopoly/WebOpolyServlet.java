@@ -55,8 +55,8 @@ public class WebOpolyServlet extends HttpServlet {
     	System.out.println("startMoney is " +startMoneyInt);
     	
     	setPlayerStartMoney(players, startMoneyInt);
-    	game.playGame();
-    	
+
+    	game.playGame();    	
     	
     	buildPageHeader(request, response, out, numPlayers, startMoney);
     	
@@ -138,7 +138,9 @@ public class WebOpolyServlet extends HttpServlet {
     	case "4":
     		playerLimit = 4;
     		break;
-    	}
+    	case "missing":
+    		playerLimit = 3;
+    		break;    	}
 		return numPlayers;
 	}
 
