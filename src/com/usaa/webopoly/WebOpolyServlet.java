@@ -76,42 +76,33 @@ public class WebOpolyServlet extends HttpServlet {
     	String numPlayers = request.getParameter("numPlayers");
     	String startMoney = request.getParameter("startMoney");
 
-    	out.println("<HTML>");
-    	out.println("<HEAD><TITLE>WebOpoly Game</TITLE></HEAD>");
-    	out.println("<BODY style='background-color: navy';><BR><BR><BR>");
-    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!<BR>");
-    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!<BR><BR>");
-    	out.println("<IMG SRC='man1.jpg'><BR>");
-
     	/* Launch Game */
     	GameController game = new GameController();
     	game.playGame();
-
     	ArrayList<Player> players = new ArrayList<>();
     	players = game.getPlayers();
+    	
+    	out.println("<HTML>");
+    	out.println("<HEAD><TITLE>WebOpoly Game</TITLE></HEAD>");
+    	out.println("<BODY style='background-color: navy';><BR><BR><BR>");
+    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!</h3><BR>");
+    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!</h3><BR><BR>");
+    	out.println("<IMG SRC='images/man1.jpg'><BR>");
 
     	out.println("<h2 style='color: white;font-weight: bolder;text-align: center;'>WebOpoly Game Progress</h2>");
-    	out.println("<BR><BR><h3><TABLE align=center style='width:75%'>");
-    	out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
+    	out.println("<BR><h2 style='color:white; text-align: left;'>Current Time is: " + CT + "</h2><BR>");
 
-    	if ( players.get(0).getNetworth() >= 0 ) {
-    		out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(0).getName() + ": ");
-    		out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(0).getNetworth() + "</TD>");
-    	}
-    	if ( players.get(1).getNetworth() >= 0 ) {
-    		out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>");
-    		out.println("<TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(1).getName() + ": ");
-    		out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(1).getNetworth() + "</TD></TR><TR>");
-    		out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
-    	}
-    	if ( players.get(2).getNetworth() >= 0 ) {
-    		out.println("<TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(2).getName() + ": ");
-    		out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(2).getNetworth() + "</TD>");
-    		out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
-    	}
-    	out.println("<TD style='color: white;font-family: cursive;text-align: center;'>");
-    	out.println("Player 4 Balance: </TD><TD style='color: red;font-family: cursive;text-align: left;'>Out</TD></TR>");
-    	out.println("</TABLE></h3><BR><BR>");
+    	out.println("<BR><TABLE align=center style='width:75%'>");
+    	out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(0).getName() + ": ");
+   		out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(0).getNetworth() + "</TD></TR>");
+
+   		out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(1).getName() + ": ");
+   		out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(1).getNetworth() + "</TD></TR>");
+ 
+   		out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(2).getName() + ": ");
+   	   	out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(2).getNetworth() + "</TD></TR>");
+
+     	out.println("</TABLE><BR><BR>");
     	out.println("<h3 style='color: white;font-weight: bolder;text-align: center;'>");
     	out.println("Balance Updates every 10 seconds</h3>");
     	out.println("</BODY></HTML>");
