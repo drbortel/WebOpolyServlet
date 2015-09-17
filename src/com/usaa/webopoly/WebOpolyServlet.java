@@ -42,72 +42,37 @@ public class WebOpolyServlet extends HttpServlet {
     	response.setContentType("text/html");
     	response.setIntHeader("Refresh", 3);
     	
-    	// Get current time
-    	Calendar calendar = new GregorianCalendar();
-    	String am_pm;
-    	int hour = calendar.get(Calendar.HOUR);
-    	int minute = calendar.get(Calendar.MINUTE);
-    	int second = calendar.get(Calendar.SECOND);
-    	String minuteStr = String.format("%02d", minute);
-    	String secondStr = String.format("%02d", second);
-
-    	if(calendar.get(Calendar.AM_PM) == 0)
-    		am_pm = "AM";
-    	else
-    		am_pm = "PM";
-
-    	String CT = hour+":"+ minuteStr +":"+ secondStr +" "+ am_pm;
-
-    	//		  PrintWriter out = response.getWriter();
-    	//	      String title = "Auto Page Refresh using Servlet";
-    	//	      String docType =
-    	//	      "<!doctype html public \"-//w3c//dtd html 4.0 " +
-    	//	      "transitional//en\">\n";
-    	//	      out.println(docType +
-    	//	        "<html>\n" +
-    	//	        "<head><title>" + title + "</title></head>\n"+
-    	//	        "<body bgcolor=\"#f0f0f0\">\n" +
-    	//	        "<h1 align=\"center\">" + title + "</h1>\n" +
-    	//	        "<p>Current Time is: " + CT + "</p>\n");
+    	String CT = getTimeInfo();
 
     	response.setContentType("text/html");
     	PrintWriter out = response.getWriter();
 
-    	String numPlayers = request.getParameter("numPlayers");
-    	int limit = 4;
-    	switch (numPlayers) {
-    	case "2":
-    		limit = 2;
-    		break;
-    	case "3":
-    		limit = 3;
-    		break;
-    	case "4":
-    		limit = 4;
-    		break;
-    	}
-    	limit = 3;
+    	String numPlayers = setPlayerLimit(request);
+
     	String startMoney = request.getParameter("startMoney");
 
     	game.playGame();
     	ArrayList<Player> players = new ArrayList<>();
     	players = game.getPlayers();
     	
-    	out.println("<HTML>");
-    	out.println("<HEAD><TITLE>WebOpoly Game</TITLE></HEAD>");
-    	out.println("<BODY style='background-color: navy;color: white;'>");
-    	response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
-    	out.println("<BR><BR><BR>");
-    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!</h3>");
-    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!</h3><BR><BR>");
-    	out.println("<IMG SRC='images/man1.jpg'><BR>");
+    	buildPageHeader(request, response, out, numPlayers, startMoney);
     	
-    	out.println("<h2 style='color: white;font-weight: bolder;text-align: center;'>WebOpoly Game Progress</h2>");
-    	out.println("<BR><h2 style='color:white; text-align: left;'>Current Time is: " + CT + "</h2><BR><BR>");
-    	out.println("<h3>Balance Updates every 5 seconds</h3>");
+    	generateTimeStamp(CT, out);
     	
-    	out.println("<TABLE align=center style='width:75%'>");
-    	for(int i=0; i<limit; i++){
+    	buildProgressTable(out, players);
+    	
+    	game.setRefreshFlag(false);
+    	/*if (game.isGameWinner()) {
+    		request.getRequestDispatcher(getServletInfo()).forward (request, "./game.html");
+    	}*/
+    }
+
+	private void buildProgressTable(PrintWriter out, ArrayList<Player> players) {
+		int playerLimit;
+		out.println("<TABLE align=center style='width:75%'>");
+    	//debug setting
+    	playerLimit = 3;
+    	for(int i=0; i<playerLimit; i++){
         	out.println(
         			"<TR><TD style='color: white;font-family: cursive;text-align: center;'>" +
         			"Balance for " + players.get(i).getName() +
@@ -134,16 +99,64 @@ public class WebOpolyServlet extends HttpServlet {
             }
     	}
      	out.println("</TABLE>");
-     	
-    	out.println("<BR><BR><h3 style='color: white;font-weight: bolder;text-align: center;'>");
-
-    	out.println("</BODY></HTML>");
+     	out.println("<BR><BR></BODY></HTML>");
     	out.close();
-    	game.setRefreshFlag(false);
-    	/*if (game.isGameWinner()) {
-    		request.getRequestDispatcher(getServletInfo()).forward (request, "./game.html");
-    	}*/
-    }
+	}
+
+	private void generateTimeStamp(String CT, PrintWriter out) {
+		out.println("<h2 style='color: white;font-weight: bolder;text-align: center;'>WebOpoly Game Progress</h2>");
+    	out.println("<BR><h2 style='color:white; text-align: left;'>Current Time is: " + CT + "</h2><BR><BR>");
+    	out.println("<h3>Balance Updates every 5 seconds</h3>");
+	}
+
+	private void buildPageHeader(HttpServletRequest request, HttpServletResponse response, PrintWriter out,
+			String numPlayers, String startMoney) throws IOException {
+		out.println("<HTML>");
+    	out.println("<HEAD><TITLE>WebOpoly Game</TITLE></HEAD>");
+    	out.println("<BODY style='background-color: navy;color: white;'>");
+    	response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
+    	out.println("<BR><BR><BR>");
+    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!</h3>");
+    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!</h3><BR><BR>");
+    	out.println("<IMG SRC='images/man1.jpg'><BR>");
+	}
+
+	private String setPlayerLimit(HttpServletRequest request) {
+		@SuppressWarnings("unused")
+		int playerLimit = 4;
+		String numPlayers = request.getParameter("numPlayers");
+    	switch (numPlayers) {
+    	case "2":
+    		playerLimit = 2;
+    		break;
+    	case "3":
+    		playerLimit = 3;
+    		break;
+    	case "4":
+    		playerLimit = 4;
+    		break;
+    	}
+		return numPlayers;
+	}
+
+	private String getTimeInfo() {
+		// Get current time
+    	Calendar calendar = new GregorianCalendar();
+    	String am_pm;
+    	int hour = calendar.get(Calendar.HOUR);
+    	int minute = calendar.get(Calendar.MINUTE);
+    	int second = calendar.get(Calendar.SECOND);
+    	String minuteStr = String.format("%02d", minute);
+    	String secondStr = String.format("%02d", second);
+
+    	if(calendar.get(Calendar.AM_PM) == 0)
+    		am_pm = "AM";
+    	else
+    		am_pm = "PM";
+
+    	String CT = hour+":"+ minuteStr +":"+ secondStr +" "+ am_pm;
+		return CT;
+	}
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
