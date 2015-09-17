@@ -29,7 +29,8 @@ public class GameController {
 
 	public void playGame() {
 		
-		while(players.size() > 1 & !refreshFlag) {
+		while(players.size() > 1 & !refreshFlag) 
+		{
 
 			if (turnCounter == 0)
 			{
