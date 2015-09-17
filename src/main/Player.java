@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Player {
 
-	public static final int DEFAULT_START_VALUE = 200;
+	public int DEFAULT_START_VALUE;
 
 	private String color;
 
@@ -77,6 +77,11 @@ public class Player {
 		int roll = die.roll();
 		rollHistory.add(die);
 		position = (position + roll) % 40; 
+	}
+
+	public void setDEFAULT_START_VALUE(int dEFAULT_START_VALUE) {
+		DEFAULT_START_VALUE = dEFAULT_START_VALUE;
+		money = DEFAULT_START_VALUE;
 	}
 
 }
