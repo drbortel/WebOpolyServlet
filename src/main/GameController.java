@@ -62,7 +62,7 @@ public class GameController {
 				}
 
 				players.remove(turnCounter % players.size());
-				System.out.println("\t" + currentPlayer.getName() + " out");
+				System.out.println("\t ** " + currentPlayer.getName() + " is Out **");
 			}
 
 			String marker;

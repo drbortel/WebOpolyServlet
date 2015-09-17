@@ -95,17 +95,17 @@ public class WebOpolyServlet extends HttpServlet {
     	out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
 
     	if ( players.get(0).getNetworth() >= 0 ) {
-    		out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Player 1 Balance: ");
+    		out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(0).getName() + ": ");
     		out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(0).getNetworth() + "</TD>");
     	}
     	if ( players.get(1).getNetworth() >= 0 ) {
     		out.println("<TR><TD style='color: white;font-family: cursive;text-align: center;'>");
-    		out.println("<TD style='color: white;font-family: cursive;text-align: center;'>Player 2 Balance: ");
+    		out.println("<TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(1).getName() + ": ");
     		out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(1).getNetworth() + "</TD></TR><TR>");
     		out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
     	}
     	if ( players.get(2).getNetworth() >= 0 ) {
-    		out.println("<TD style='color: white;font-family: cursive;text-align: center;'>Player 3 Balance: ");
+    		out.println("<TD style='color: white;font-family: cursive;text-align: center;'>Balance for " + players.get(2).getName() + ": ");
     		out.println("</TD><TD style='color: red;font-family: cursive;text-align: left;'>$ " + players.get(2).getNetworth() + "</TD>");
     		out.println("<h3 style='color:white; text-align: left;'>Current Time is: " + CT + "\n");
     	}
