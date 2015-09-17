@@ -45,7 +45,7 @@ public class GameController {
 					e.printStackTrace();
 				}
 			}
-
+					
 			//Get Current Player
 			Player currentPlayer = players.get(turnCounter % players.size());
 			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
@@ -140,6 +140,11 @@ public class GameController {
 
 	public void setPlayers(ArrayList<Player> players) {
 		this.players = players;
+	}
+
+	public boolean isRefreshFlag() 
+	{
+		return refreshFlag;
 	}
 
 

@@ -100,11 +100,21 @@ public class WebOpolyServlet extends HttpServlet {
         			": "
         			//);
         			+ "</TD>");
+        	if (players.get(i).getNetworth() > 0) {
+           		out.println(
+           				"<TD style='color: red;font-family: cursive;text-align: left;'>" +
+           				"$ " + players.get(i).getNetworth()
+           				+ "</TD></TR>"
+           				);        		
+        	}
+        	else
+        	{
        		out.println(
        				"<TD style='color: red;font-family: cursive;text-align: left;'>" +
-       				"$ " + players.get(i).getNetworth()
+       				"Bankrupt!"
        				+ "</TD></TR>"
        				);
+        	}
     	}
      	out.println("</TABLE>");
      	
