@@ -10,6 +10,8 @@ public class GameController {
 	private ArrayList<Player> players = new ArrayList<Player>();
 
 	private boolean gameWinner = false;
+	
+	private boolean refreshFlag = false;
 
 	private int turnCounter = 0;
 
@@ -28,7 +30,7 @@ public class GameController {
 	public void playGame() {
 		System.out.println("*************************************\n**     Welcome to WebOpoly!!!     **\n*************************************");
 
-		while(players.size() > 1) {
+		while(players.size() > 1 & !refreshFlag) {
 			//Wait for User input
 			if(debug) {
 				try {
@@ -76,8 +78,9 @@ public class GameController {
 				System.out.print(marker + player.getName() + "=" + player.getNetworth() + "\t\t");
 			}
 			System.out.println();
-			if ( (turnCounter % 10) == 0 ) {
+			if ( ((turnCounter+1) % 10) == 0 ) {
 				System.out.println("\t" + " ** Refresh the Page **");
+				refreshFlag = true;
 			}
 
 			//checkForWin(players.get(turnCounter % players.size()), board);
@@ -88,7 +91,9 @@ public class GameController {
 			turnCounter++;
 		}
 
-		System.out.println(players.get(0).getName() + " wins!!!");
+		if ( players.size() == 1 ) {
+			System.out.println(players.get(0).getName() + " wins!!!");
+		}
 
 	}
 
