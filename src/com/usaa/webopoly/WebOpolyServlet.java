@@ -53,6 +53,7 @@ public class WebOpolyServlet extends HttpServlet {
     	String startMoney = request.getParameter("startMoney");
     	//int startMoneyInt = Integer.parseInt(startMoney);
     	
+
 //    	try {
 //    		 Integer.parseInt(startMoney);
 //    	} catch (NumberFormatException e){
@@ -65,8 +66,7 @@ public class WebOpolyServlet extends HttpServlet {
     	
     	//setPlayerStartMoney(players, startMoneyInt);
     	game.playGame();
-    	
-    	
+    	   	
     	buildPageHeader(request, response, out, numPlayers, startMoney);
     	
     	generateTimeStamp(CT, out);
@@ -147,7 +147,9 @@ public class WebOpolyServlet extends HttpServlet {
     	case "4":
     		playerLimit = 4;
     		break;
-    	}
+    	case "missing":
+    		playerLimit = 3;
+    		break;    	}
 		return numPlayers;
 	}
 

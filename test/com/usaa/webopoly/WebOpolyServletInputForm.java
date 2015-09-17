@@ -7,18 +7,28 @@ import org.junit.Test;
 public class WebOpolyServletInputForm {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testForm() {
+	public void testFormParametersReceived() {
 		//form f = new form();
 
 		//if(f.display() == null) {
-			fail("Form is not initialized with default values");
-		}
-
-		//form inputForm = new form("inputForm");
+		fail("Form is not passing the set values");
 	}
+
+	@Test
+	public void testMissingNumberPlayers() {
+		//form f = new form();
+
+		//if(f.display() == null) {
+		fail("Form is not rejecting with missing player values");
+	}
+	
+	@Test
+	public void testMissingStartMoney() {
+		//form f = new form();
+
+		//if(f.display() == null) {
+		fail("Form is not rejecting with missing money values");
+	}
+	
+}
 
