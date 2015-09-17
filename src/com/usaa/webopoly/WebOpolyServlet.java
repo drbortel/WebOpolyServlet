@@ -85,7 +85,7 @@ public class WebOpolyServlet extends HttpServlet {
     	out.println("<HTML>");
     	out.println("<HEAD><TITLE>WebOpoly Game</TITLE></HEAD>");
     	out.println("<BODY style='background-color: navy';><BR><BR><BR>");
-    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!</h3><BR>");
+    	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!</h3>");
     	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!</h3><BR><BR>");
     	out.println("<IMG SRC='images/man1.jpg'><BR>");
 
