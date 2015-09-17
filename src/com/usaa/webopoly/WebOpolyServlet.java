@@ -95,39 +95,19 @@ public class WebOpolyServlet extends HttpServlet {
     	out.println("<BR><h2 style='color:white; text-align: left;'>Current Time is: " + CT + "</h2><BR><BR>");
 
     	out.println("<TABLE align=center style='width:75%'>");
-    	out.println(
-    			"<TR><TD style='color: white;font-family: cursive;text-align: center;'>" +
-    			"Balance for " + players.get(0).getName() +
-    			": "
-    			//);
-    			+ "</TD>");
-   		out.println(
-   				"<TD style='color: red;font-family: cursive;text-align: left;'>" +
-   				"$ " + players.get(0).getNetworth()
-   				+ "</TD></TR>"
-   				);
-   		out.println(
-   				"<TR><TD style='color: white;font-family: cursive;text-align: center;'>" +
-   				"Balance for " + players.get(1).getName() +
-    			": "
-    			//);
-    			+ "</TD>");
-   		out.println(
-   				"<TD style='color: red;font-family: cursive;text-align: left;'>" +
-   				"$ " + players.get(1).getNetworth()
-   				+ "</TD></TR>"
-   				);  		
-   		out.println(
-   				"<TR><TD style='color: white;font-family: cursive;text-align: center;'>" +
-   				"Balance for " + players.get(1).getName() +
-    			": "
-    			//);
-    			+ "</TD>");
-   		out.println(
-   				"<TD style='color: red;font-family: cursive;text-align: left;'>" +
-   				"$ " + players.get(1).getNetworth()
-   				+ "</TD></TR>"
-   				);	
+    	for(int i=0; i<3; i++){
+        	out.println(
+        			"<TR><TD style='color: white;font-family: cursive;text-align: center;'>" +
+        			"Balance for " + players.get(i).getName() +
+        			": "
+        			//);
+        			+ "</TD>");
+       		out.println(
+       				"<TD style='color: red;font-family: cursive;text-align: left;'>" +
+       				"$ " + players.get(i).getNetworth()
+       				+ "</TD></TR>"
+       				);
+    	}
      	out.println("</TABLE>");
      	
     	out.println("<BR><BR><h3 style='color: white;font-weight: bolder;text-align: center;'>");
