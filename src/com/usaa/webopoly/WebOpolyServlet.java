@@ -51,10 +51,19 @@ public class WebOpolyServlet extends HttpServlet {
     	String numPlayers = setPlayerLimit(request);
 
     	String startMoney = request.getParameter("startMoney");
-    	int startMoneyInt = Integer.parseInt(startMoney);
-    	System.out.println("startMoney is " +startMoneyInt);
+    	//int startMoneyInt = Integer.parseInt(startMoney);
     	
-    	setPlayerStartMoney(players, startMoneyInt);
+//    	try {
+//    		 Integer.parseInt(startMoney);
+//    	} catch (NumberFormatException e){
+//    		startMoneyInt = 200; 
+//    		e.printStackTrace();
+//    	}  
+    	
+    	
+    	//System.out.println("startMoney is " +startMoneyInt);
+    	
+    	//setPlayerStartMoney(players, startMoneyInt);
     	game.playGame();
     	
     	
