@@ -38,7 +38,7 @@ public class WebOpolyServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	// TODO Auto-generated method stub
-    	response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
+    	//response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
     	response.setContentType("text/html");
     	response.setIntHeader("Refresh", 5);
 
@@ -84,7 +84,9 @@ public class WebOpolyServlet extends HttpServlet {
     	
     	out.println("<HTML>");
     	out.println("<HEAD><TITLE>WebOpoly Game</TITLE></HEAD>");
-    	out.println("<BODY style='background-color: navy;color: white;'><BR><BR><BR>");
+    	out.println("<BODY style='background-color: navy;color: white;'>");
+    	response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
+    	out.println("<BR><BR><BR>");
     	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>You have " + numPlayers + " players!</h3>");
     	out.println("<h3 style='color: white;font-family: cursive;text-align: left;'>Players have " + startMoney + " starting money!</h3><BR><BR>");
     	out.println("<IMG SRC='images/man1.jpg'><BR>");
