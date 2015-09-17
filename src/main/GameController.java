@@ -83,7 +83,7 @@ public class GameController {
 				System.out.print(marker + player.getName() + "=" + player.getNetworth() + "\t\t");
 			}
 			System.out.println();
-			if ( ((turnCounter+1) % 10) == 0 ) {
+			if ( ((turnCounter+5) % 10) == 0 ) {
 				System.out.println("\t" + " ** Refresh the Page **");
 				refreshFlag = true;
 			}
