@@ -31,7 +31,7 @@ public class WebOpolyServlet extends HttpServlet {
 
     public void init() 
     {
-    	game.playGame();
+    	
     }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -75,9 +75,9 @@ public class WebOpolyServlet extends HttpServlet {
 
     	String numPlayers = request.getParameter("numPlayers");
     	String startMoney = request.getParameter("startMoney");
-
-    	/* Launch Game */
     	
+    	/* Launch Game */
+    	game.playGame();
     	ArrayList<Player> players = new ArrayList<>();
     	players = game.getPlayers();
     	
@@ -110,7 +110,7 @@ public class WebOpolyServlet extends HttpServlet {
      	out.println("</TABLE>");
      	
     	out.println("<BR><BR><h3 style='color: white;font-weight: bolder;text-align: center;'>");
-    	out.println("Balance Updates every 10 seconds</h3>");
+    	out.println("Balance Updates every 5 seconds</h3>");
     	out.println("</BODY></HTML>");
     	out.close();
     }
