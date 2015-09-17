@@ -84,7 +84,8 @@ public class GameController {
 				System.out.print(marker + player.getName() + "=" + player.getNetworth() + "\t\t");
 			}
 			System.out.println();
-			if ( ((turnCounter+5) % 10) == 0 ) {
+			if ( ((turnCounter+5) % 10) == 0 & players.size() > 2) {
+				System.out.println("\t" + " ** Players Left:" + players.size() + " **");
 				System.out.println("\t" + " ** Refresh the Page **");
 				refreshFlag = true;
 			}
@@ -97,9 +98,8 @@ public class GameController {
 			turnCounter++;
 		}
 
-		if ( players.size() == 1 ) {
+		if ( players.size() == 1 & !refreshFlag) {
 			System.out.println(players.get(0).getName() + " wins!!!");
-
 			refreshFlag = false;
 		}
 
@@ -152,6 +152,14 @@ public class GameController {
 
 	public void setRefreshFlag(boolean refreshFlag) {
 		this.refreshFlag = refreshFlag;
+	}
+
+	public boolean isGameWinner() {
+		return gameWinner;
+	}
+
+	public void setGameWinner(boolean gameWinner) {
+		this.gameWinner = gameWinner;
 	}
 }
 
