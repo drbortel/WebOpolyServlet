@@ -101,11 +101,21 @@ public class WebOpolyServlet extends HttpServlet {
         			": "
         			//);
         			+ "</TD>");
+        	if (players.get(i).getNetworth() > 0) {
+           		out.println(
+           				"<TD style='color: red;font-family: cursive;text-align: left;'>" +
+           				"$ " + players.get(i).getNetworth()
+           				+ "</TD></TR>"
+           				);        		
+        	}
+        	else
+        	{
        		out.println(
        				"<TD style='color: red;font-family: cursive;text-align: left;'>" +
-       				"$ " + players.get(i).getNetworth()
+       				"Bankrupt!"
        				+ "</TD></TR>"
        				);
+        	}
     	}
      	out.println("</TABLE>");
      	
@@ -113,6 +123,7 @@ public class WebOpolyServlet extends HttpServlet {
     	out.println("Balance Updates every 5 seconds</h3>");
     	out.println("</BODY></HTML>");
     	out.close();
+    	game.setRefreshFlag(false);
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

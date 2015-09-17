@@ -43,6 +43,10 @@ public class GameController {
 				}
 			}
 
+			if (turnCounter == 0) {
+				System.out.println("*************************************\n**     Welcome to WebOpoly!!!     **\n*************************************");
+			}
+			
 			//Get Current Player
 			Player currentPlayer = players.get(turnCounter % players.size());
 			Tile currentPlayerTile = board.getTile(currentPlayer.getPosition() % board.getBoardSize());
@@ -136,6 +140,14 @@ public class GameController {
 
 	public void setPlayers(ArrayList<Player> players) {
 		this.players = players;
+	}
+
+	public boolean isRefreshFlag() {
+		return refreshFlag;
+	}
+
+	public void setRefreshFlag(boolean refreshFlag) {
+		this.refreshFlag = refreshFlag;
 	}
 }
 
