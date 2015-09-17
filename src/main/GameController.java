@@ -28,11 +28,14 @@ public class GameController {
 	}
 
 	public void playGame() {
-		System.out.println("*************************************\n**     Welcome to WebOpoly!!!     **\n*************************************");
-
-
+		
 		while(players.size() > 1 & !refreshFlag) {
 
+			if (turnCounter == 0)
+			{
+				System.out.println("*************************************\n**     Welcome to WebOpoly!!!     **\n*************************************");
+			}
+			
 			//Wait for User input
 			if(debug) {
 				try {
@@ -95,6 +98,7 @@ public class GameController {
 
 		if ( players.size() == 1 ) {
 			System.out.println(players.get(0).getName() + " wins!!!");
+			this.setRefreshFlag(false);
 		}
 
 	}
@@ -136,6 +140,11 @@ public class GameController {
 
 	public void setPlayers(ArrayList<Player> players) {
 		this.players = players;
+	}
+
+
+	public void setRefreshFlag(boolean refreshFlag) {
+		this.refreshFlag = refreshFlag;
 	}
 }
 

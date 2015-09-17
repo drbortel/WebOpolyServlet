@@ -31,7 +31,7 @@ public class WebOpolyServlet extends HttpServlet {
 
     public void init() 
     {
-    	game.playGame();
+    	
     }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +40,7 @@ public class WebOpolyServlet extends HttpServlet {
     	// TODO Auto-generated method stub
     	//response.getWriter().append("<h4 style='color: silver;text-align: left;'>Served at: ").append(request.getContextPath());
     	response.setContentType("text/html");
-    	response.setIntHeader("Refresh", 5);
+    	response.setIntHeader("Refresh", 3);
 
     	// Get current time
     	Calendar calendar = new GregorianCalendar();
@@ -78,6 +78,7 @@ public class WebOpolyServlet extends HttpServlet {
 
     	/* Launch Game */
     	
+    	game.playGame();
     	ArrayList<Player> players = new ArrayList<>();
     	players = game.getPlayers();
     	
@@ -110,9 +111,10 @@ public class WebOpolyServlet extends HttpServlet {
      	out.println("</TABLE>");
      	
     	out.println("<BR><BR><h3 style='color: white;font-weight: bolder;text-align: center;'>");
-    	out.println("Balance Updates every 10 seconds</h3>");
+    	out.println("Balance Updates every 3 seconds</h3>");
     	out.println("</BODY></HTML>");
     	out.close();
+    	game.setRefreshFlag(false);
     }
     
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
